@@ -1,0 +1,216 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+body, html {
+    height: 100%;
+}
+
+body {
+	font: 100%/1.4 Arial, Helvetica Neue, Helvetica, sans-serif;
+	background-color: #A1BDE3;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+
+/* ~~ Öğe/etiket seçiciler ~~ */
+ul, ol, dl {
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+a img {
+	border: none;
+}
+
+/* ~~ Hover efektini oluşturan seçiciler grubu da dahil olmak üzere, şu sırada kalmalıdır. ~~ */
+a:link {
+	color:#414958;
+	text-decoration: underline; /* bağlarınıza aşırı derecede benzersiz görüneceği şekilde stil vermediğiniz sürece, hızlı görsel tanımlama olabilmesi için yapılabilecek en iyi şey alt çizgi sağlamaktır.  */
+}
+a:visited {
+	color: #4E5869;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* bu seçiciler grubu, bir klavye gezginine fare kullanan bir kişiyle aynı hover (üzerine gelme) deneyimini sağlayacaktır. */
+	text-decoration: none;
+}
+
+/* ~~ bu kap onlara yüzde tabanlı genişliğini veren diğer tüm div’leri çevreler ~~ */
+.container {
+	width: 85%;
+	max-width: 1260px;/* bu mizanpajın büyük bir ekranda fazla geniş olmasını önlemek için bir maksimum genişlik istenebilir. Bu, satır uzunluğunu daha okunabilir hale getirir. IE6 bu bildirimi kabul etmez.  */
+	min-width: 780px;/* bu mizanpajın fazla dar olmasını önlemek için bir minimum genişlik istenebilir. Bu, yan sütunlarda satır uzunluğunu daha okunabilir hale getirir. IE6 bu bildirimi kabul etmez.  */
+	background-color: #FFF;
+	margin: 0 auto; /* kenarlardaki otomatik değer, genişlikle eşleştirildiğinde, mizanpajı ortalar. .container öğesinin genişliğini %100 olacak şekilde ayarlarsanız bu gerekmez. */
+}
+
+/* ~~ üstbilgi belirli bir genişlik değildir. Mizanpajınızın tüm genişliğini uzatır. Sizin kendi bağlı logonuzla değiştirilmesi gereken bir görüntü yer tutucusu içerir ~~ */
+.header {
+	background-color: #6F7D94;
+	padding: 10px 0;
+}
+
+/* ~~ Bunlar mizanpaj sütunlarıdır. ~~  
+
+1) Dolgu yalnızca div’lerin üst ve/veya alt kısmına yerleştirilir. Bu dolguların içindeki öğelerin kenarlarında dolgu vardır. Bu sizi herhangi bir "kutu modeli matematiğinden" kurtarır. Div’in kendisine herhangi bir kenar dolgusu veya kenarlık eklerseniz, bu *toplam* genişliği oluşturmak için tanımladığınız genişliğe eklenir. Ayrıca div’deki öğenin dolgusunu kaldırıp içine genişliği olmayan yeni bir div ve tasarımınız için gerekli olan dolguyu yerleştirmeyi de seçebilirsiniz.
+
+2) Hepsi yüzdürüldüğünden, sütunlara herhangi bir kenar boşluğu eklenmedi. Bir kenar boşluğu eklemeniz gerekiyorsa, onu yüzdürdüğünüz tarafa yerleştirmekten kaçının (örneğin: sağa yüzecek şekilde ayarlanan bir sağ kenar boşluğu). Çoğu zaman, onun yerine dolgu kullanılabilir. Bu kuralın kırılması gereken div’ler için, Internet Explorer’ın çift kenar boşluğuna sahip olduğu bazı sürümlerindeki bir hatayı gidermek amacıyla, div’in kuralına bir "display:inline" bildirimi eklemeniz gerekir.
+
+3) Sınıflar bir belgede bir kereden fazla kullanılabildiği için ( ve bir öğeye de birden çok sınıf uygulanabildiğinden), sütunlara kimlikler yerine sınıf adları eklenmiştir. Örneğin, iki yan çubuk div’i gerektiğinde yığınlanabilir. Tercihiniz buysa, belge başına bir kere kullandığınız sürece bunlar kolaylıkla kimlikler olarak değiştirilebilir.
+
+4) Gezinme çubuğunuzun sol yerine sağ tarafta olmasını tercih ediyorsanız, bu sütunları ters yönde yüzdürmeniz yeterlidir (hepsini sola yüzdürmek yerine hepsini sağa yüzdürmek) ve böylece ters sırada yüzeceklerdir. Bir HTML kaynağında div’lerin yerini oynatmaya gerek yoktur.
+
+*/
+.sidebar1 {
+	float: left;
+	width: 25%;
+	height: 100%;
+	background-color: #93A5C4;
+	padding-bottom: 10px;
+	font-size: 90%;
+}
+.content {
+	padding: 10px 0;
+	width: 75%;
+	float: left;
+}
+
+
+
+/* ~~ Bu gruplanan seçici .content alanındaki listeleri verir ~~ */
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; /* bu dolgu yukarıda üstbilgilerdeki ve paragraf kuralındaki sağ dolguyu yansıtır. Dolgu, listelerdeki diğer öğeler arasındaki alan için alta ve satırbaşını oluşturmak için sola yerleştirilir. Bunlar istediğiniz gibi ayarlanabilir.  */
+}
+
+/* ~~ Gezinme listesi stilleri (Spry gibi bir önceden yapılmış açılır pencere menüsü kullanmayı tercih ederseniz kaldırılabilir) ~~ */
+ul.nav {
+	list-style: none; /* bu, liste işaretleyicisini kaldırır */
+	border-top: 1px solid #666; /* bu, bağlar için üst kenarlık oluşturur – diğerlerinin tümü LI’da bir alt kenarlık kullanılarak yerleştirilir */
+	margin-bottom: 15px; /* bu aşağıdaki içerikteki gezinmenin arasındaki alanı oluşturur */
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* bu düğme ayrımını oluşturur */
+}
+ul.nav a, ul.nav a:visited { /* bu seçicileri gruplamak, bağlarınızın ziyaret edildikten sonra bile düğme görünümünü kaybetmemesini sağlar */
+	padding: 5px 5px 5px 15px;
+	display: block; /* bu, bağa blok özellikleri ekleyerek onu içeren LI’nın tamamının doldurmasını sağlar. Bu, alanın tümünün fare tıklatılmasına tepki vermesini sağlar. */
+	text-decoration: none;
+	background-color: #8090AB;
+	color: #000;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* bu, fare ve klavye gezginleri için arka plan ve metin rengini değiştirir */
+	background-color: #6F7D94;
+	color: #FFF;
+}
+
+/* ~~ Altbilgi ~~ */
+.footer {
+	padding: 10px 0;
+	background-color: #6F7D94;
+	position: relative;/* bu, temizlemenin düzgün olması için IE6’ya hasLayout öğesini verir */
+	clear: both; /* bu temizleme özelliği .container öğesini sütunların nerede bittiğini anlamaya ve onları içermeye zorlar */
+}
+
+/* ~~ çeşitli float/clear sınıfları ~~ */
+.fltrt {  /* bu sınıf bir öğeyi sayfanızın sağında yüzdürmek için kullanılabilir. Yüzen öğe sayfada olması gereken bir sonraki öğeden önce gelmelidir. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* bu sınıf bir öğeyi sayfanızın solunda yüzdürmek için kullanılabilir. Yüzen öğe sayfada olması gereken bir sonraki öğeden önce gelmelidir. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* bu sınıf, #footer kaldırılırsa veya #container öğesinden çıkarılırsa, son yüzdürülen div’i (#container öğesi içinde) takiben bir <br /> veya boş bir div’e yerleştirilebilir */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+.result {
+	margin: 0;
+	padding: 2, 2;
+	color: #FFF;
+	font-size: 24px;
+	font-weight: bold;
+	width: auto;
+	background-color: #3672B4;
+}
+.result_dt {
+	margin: 0;
+	padding: 0;
+	color: #EEE;
+	font-size: 14px;
+	font-weight: normal;
+	
+}
+
+table.blueTable {
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid #3672B4;
+  background-color: #FCFCFC;
+  text-align: left;
+  border-collapse: collapse;
+}
+table.blueTable td, table.blueTable th {
+  padding: 5px 5px;
+}
+table.blueTable tbody td {
+  font-size: 14px;
+  font-weight: bold;
+}
+table.blueTable tr:nth-child(even) {
+  background: #EFEFEF;
+}
+table.blueTable thead {
+  background: #3672B4;
+}
+table.blueTable th {
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: left;
+  background: #3672B4;
+}
+
+.collapsible {
+  color: #000;
+  text-align: left;
+  background: #FFF;
+	
+}
+
+.src-header {
+  font-size: 14px;
+  font-weight: bold;
+  color: #111;
+  text-align: left;
+  background: #CCC;
+	
+}
+
+.result-header {
+	float: none;
+	width: 90%;
+  	font-size: 16px;
+  	font-weight: bold;
+  	color: #111;
+  	text-align: left;
+  	background: #CFF;
+}
+
+.master-header {
+	float: none;
+	width: 90%;
+  	font-size: 12px;
+  	font-weight: bold;
+  	color: #FFF;
+  	text-align: left;
+  	background: #009;
+}
